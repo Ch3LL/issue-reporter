@@ -1,0 +1,4 @@
+# exclude following directories and files
+build
+issue_reporter.egg-info
+__pycache__
