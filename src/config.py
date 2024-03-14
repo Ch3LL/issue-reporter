@@ -8,7 +8,7 @@ def root_path():
     Path to configuration root path
     """
     root = pathlib.Path("/etc", "ireport")
-    if sys.platform == "windows":
+    if sys.platform == "win32":
         root = pathlib.Path("C:\\ireport")
 
     return root
