@@ -15,13 +15,19 @@ class Issues(backend.jira.auth.Auth):
         set only return that comment. If comment_filter is not
         set return latest comment
         """
+        exists = False
         for comment in comments:
             body = comment["body"]
             comment_filter = self.opts["jira"]["comment_filter"]
             if comment_filter:
+                exists = True
                 if body.startswith(comment_filter):
                     body = body.replace(comment_filter, "")
                     return body
+        if exists:
+            # comment_filter is set but couldn't find it in
+            # comments. Returning None.
+            return None
         return body
 
 
