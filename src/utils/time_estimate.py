@@ -4,10 +4,10 @@ def convert_estimate(time_estimate):
     days or hours. 8 hours is considered 1 day.
     If time is less than 8 hours return hours
     """
-    hours = time_estimate / 3600
-    days = hours / 8
+    hours = int(time_estimate / 3600)
+    days = int(hours / 8)
     if days >= 1:
-        estimate = f"{days}d"
+        estimate = f"{days}D"
     else:
-        estimate = f"{hours}h"
+        estimate = f"{hours}H"
     return estimate
